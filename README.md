@@ -237,7 +237,7 @@ function processClick(el) {
 
 ---
 
-### 
+### How we hosted the files on Bots.Business
 1. Clone repository:
    ```bash
    git clone https://github.com/yourusername/drop-blast.git
