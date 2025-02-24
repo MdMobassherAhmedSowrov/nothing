@@ -238,7 +238,7 @@ function processClick(el) {
 
 ---
 
-### How we Devlop This By Bots.Business
+### How We Developed This Using Bots.Business
 *Bots.Business Support Devlop and host Telegram WebApp*
 
 #### 1. Creating the `/start` Command
