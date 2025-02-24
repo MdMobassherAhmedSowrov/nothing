@@ -6,7 +6,6 @@
 An addictive arcade-style game built for Telegram WebApps where players tap falling elements to score points while avoiding bombs and using power-ups.
 
 ![drop](https://github.com/user-attachments/assets/79bf4233-ffac-4bc1-853e-e9bc389f14dc)
-CZ.jpeg) 
 
 ## Features
 
