@@ -165,19 +165,24 @@ function checkHomeScreenInstall() {
 
 ```javascript
 // Story sharing logic
-function shareToStory(score) {
-  const mediaUrl = 'https://your-domain.com/screenshot.jpg'; // Replace with your image URL
-  const storyParams = {
-    text: `I scored ${score} points in Drop Blast! Can you beat me? 🚀`,
-    media: mediaUrl
-  };
+const media_url = 'https://botfather.cloud/Assets/Photo/DropBlast.jpg';
+    const storyParams = {
+        text: `I scored ${score} points in BB Drop Blast! Can you beat me?`,
+    };
 
-  if (tg.isVersionAtLeast('8.0')) {
-    tg.shareToStory(storyParams);
-  } else {
-    tg.showAlert('Story sharing is not supported in this version of Telegram.');
-  }
-}
+    if (tg.initDataUnsafe.user && tg.initDataUnsafe.user.is_premium) {
+        storyParams.widget_link = {
+            url: 'https://app.bots.business/',
+            name: 'Create Own Bot',
+        };
+    }
+
+    if (tg.platform !== 'unknown') {
+        tg.shareToStory(media_url, storyParams);
+    } else {
+        tg.showAlert('Story sharing is not available in this version of Telegram');
+    }
+});
 ```
 
 ---
@@ -232,16 +237,7 @@ function processClick(el) {
 
 ---
 
-This section now includes the **Add to Home Screen** feature, along with the relevant code snippet. It’s designed to be both **user-friendly** and **developer-friendly**, helping players understand the game mechanics while giving developers insights into the implementation.
-
-## Installation & Setup
-
-### Prerequisites
-- Telegram client (mobile or desktop)
-- Web server for hosting
-- Basic understanding of Telegram Bot API
-
-### Deployment
+### 
 1. Clone repository:
    ```bash
    git clone https://github.com/yourusername/drop-blast.git
