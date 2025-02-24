@@ -44,7 +44,7 @@ An addictive arcade-style game built for Telegram WebApps where players tap fall
   - Tap **"Start Game"** to begin.
   - Use **"Fullscreen"** (if available) for an immersive experience.
 
-![Main Menu Screenshot](path_to_screenshot.jpg)
+![Main Menu Screenshot](https://i.imgur.com/eAAT6v2.jpeg)
 
 ```javascript
 // Initialize Telegram WebApp
@@ -64,7 +64,7 @@ tg.setBackgroundColor('#1e293b'); // Sets the background color
   - ❄️ **Ice Power-Ups**: Tap to freeze time and slow down elements.
 - **Timer**: You have **60 seconds** to score as many points as possible.
 
-![Gameplay Screenshot](path_to_screenshot.jpg)
+![Gameplay Screenshot](https://i.imgur.com/j4GQhCZ.jpeg)
 
 ```javascript
 // Element spawning logic
@@ -86,11 +86,11 @@ function spawnElement() {
   - Temporarily slows down all falling elements.
   - Activates for **4 seconds** (configurable).
   - Limited uses per game.
+![image](https://github.com/user-attachments/assets/24eef628-f56f-4856-bfdd-aafdb8c1d774)
+
 - **Combo System**:
   - Chain consecutive taps for bonus points.
   - Multiplier increases with each successful hit.
-
-![Power-Up Screenshot](path_to_screenshot.jpg)
 
 ```javascript
 // Freeze power-up logic
@@ -113,7 +113,8 @@ function activateFreeze() {
     - 📤 **Share to Story**: Post your score on Telegram (if supported).
     - 🏠 **Main Menu**: Return to the start screen.
 
-![Game Over Screenshot](path_to_screenshot.jpg)
+![Game Over Screenshot](https://github.com/user-attachments/assets/bb5e1a9e-37a1-496a-a9a2-769da88e7e00)
+
 
 ```javascript
 // Save high score to Telegram Cloud Storage
@@ -134,8 +135,9 @@ function saveHighScore(score) {
 - **Haptic Feedback**: Vibrates on bomb hits (if supported by the device).
 - **Add to Home Screen**: Install the game for quick access.
 
-![Advanced Features Screenshot](path_to_screenshot.jpg)
+![Advanced Features Screenshot](https://github.com/user-attachments/assets/c12db2bf-29b5-465e-a727-96696ef77b27)
 
+**ADD TO Home Screen**
 ```javascript
 // Add to Home Screen logic
 function checkHomeScreenInstall() {
@@ -149,7 +151,30 @@ function checkHomeScreenInstall() {
   });
 }
 ```
+### **Story Sharing**
+**Share Your Score:** Post your high score to your Telegram story.
 
+**How It Works:**
+
+After the game ends, tap "Share to Story".
+A preview of your score is generated.
+Share it directly to your Telegram story.
+![image](https://github.com/user-attachments/assets/ad319111-d52a-4695-9941-b02c927ccf82)
+```javascript
+// Story sharing logic
+function shareToStory(score) {
+  const mediaUrl = 'https://your-domain.com/screenshot.jpg'; // Replace with your image URL
+  const storyParams = {
+    text: `I scored ${score} points in Drop Blast! Can you beat me? 🚀`,
+    media: mediaUrl
+  };
+
+  if (tg.isVersionAtLeast('8.0')) {
+    tg.shareToStory(storyParams);
+  } else {
+    tg.showAlert('Story sharing is not supported in this version of Telegram.');
+  }
+}```
 ---
 
 ### 6. **Emoji Status System**
@@ -159,7 +184,8 @@ function checkHomeScreenInstall() {
   - Grant permission to set your emoji status.
   - A special emoji status is activated for 1 hour.
 
-![Emoji Status Screenshot](path_to_screenshot.jpg)
+![Emoji Status Screenshot](https://github.com/user-attachments/assets/dbe303d8-4f5b-4465-9b65-10e77c484a38)
+.jpg)
 
 ```javascript
 // Emoji status logic
@@ -179,6 +205,7 @@ function setEmojiStatus() {
   });
 }
 ```
+![Screenshot_2025-02-25-01-08-44-36_948cd9899890cbd5c2798760b2b95377](https://github.com/user-attachments/assets/3a2e5799-6da2-4423-956e-754f8ac4dee8)
 
 ---
 
@@ -187,8 +214,6 @@ function setEmojiStatus() {
 - Use **ice power-ups** strategically during high-speed moments.
 - Avoid **bombs** to prevent score penalties.
 - Aim for **combos** to maximize your score multiplier.
-
-![Winning Strategy Screenshot](path_to_screenshot.jpg)
 
 ```javascript
 // Combo system logic
