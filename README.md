@@ -161,7 +161,8 @@ function checkHomeScreenInstall() {
 - A preview of your score is generated.
 - Share it directly to your Telegram story.
 
-![Story Sharing Screenshot](https://github.com/user-attachments/assets/ad319111-d52a-4695-9941-b02c927ccf82)
+![Story Sharing Screenshot](https://github.com/user-attachments/assets/5b8452a4-7ec7-4bf5-982f-bbbe83773bbc)
+
 
 ```javascript
 // Story sharing logic
