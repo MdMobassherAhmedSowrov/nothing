@@ -237,7 +237,8 @@ function processClick(el) {
 
 ---
 
-### How we Made This By Bots.Business
+### How we Devlop This By Bots.Business
+*Bots.Business Support Devlop and host Telegram WebApp*
 
 #### 1. Creating the `/start` Command
 We create a `/start` command that sends a message with an inline button to open the Web App.
