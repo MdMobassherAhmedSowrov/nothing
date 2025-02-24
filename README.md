@@ -1,32 +1,48 @@
-# Drop Blast - Telegram Arcade Game 🚀
+# Drop Blast - Telegram WebApp Game
 
 [![Telegram WebApp](https://img.shields.io/badge/Telegram-WebApp-2AABEE?logo=telegram)](https://core.telegram.org/bots/webapps)
-[![MIT License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![BB Contest Ready](https://img.shields.io/badge/BB_Contest-2024_Entry-blue)](https://bots.business)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-<img src="assets/game-preview.gif" alt="Game Preview" width="300" align="right">
+An addictive arcade-style game built for Telegram WebApps where players tap falling elements to score points while avoiding bombs and using power-ups.
 
-A high-performance arcade game built natively for Telegram WebApps, featuring dynamic gameplay mechanics and deep platform integration. Designed for the Bots.Business Development Contest with extensible architecture and modular configuration.
+![Gameplay Screenshot](/path/to/screenshot.png) <!-- Add actual screenshot path -->
 
-## 🌟 Key Features
+## Features
 
-### Core Gameplay Mechanics
-| Feature                | Description                                  | Tech Implementation          |
-|------------------------|----------------------------------------------|-------------------------------|
-| Dynamic Element System | Procedurally generated falling objects      | HTML5 Canvas + RequestAnimationFrame |
-| Power-up System        | Freeze time, score multipliers, bomb defuse | Custom Event Bus + Tween.js   |
-| Collision Detection    | Pixel-perfect click detection               | Bounding Box + Ray Casting    |
-| Progressive Difficulty | Adaptive speed scaling                      | Time-based curve algorithms   |
+🎮 **Core Gameplay**
+- Dynamic falling elements with varying speeds/sizes
+- Bomb avoidance mechanics
+- Ice power-up to slow down elements
+- Real-time score tracking
+- High score system with cloud storage
 
-### Telegram Integration
-- **User Profile System**  
-  ```javascript
-  // src/telegram/integration.js
-  export function loadTelegramProfile() {
-    const user = Telegram.WebApp.initDataUnsafe.user;
-    return {
-      name: `${user.first_name} ${user.last_name}`,
-      avatar: user.photo_url,
-      premium: user.is_premium
-    };
-  }
+💎 **Premium Features**
+- Telegram user profile integration
+- Emoji status rewards for premium users
+- Story sharing with score challenges
+- Home screen installation prompts
+
+✨ **Special Effects**
+- Particle explosion animations
+- Screen freeze effect with ice particles
+- Bomb shake effect
+- Floating UI elements with glassmorphism design
+
+📱 **Telegram Integration**
+- Native WebApp UI components
+- Cloud storage for high scores
+- Fullscreen mode support
+- Telegram BackButton integration
+- Device vibration feedback
+
+## Installation & Setup
+
+### Prerequisites
+- Telegram client (mobile or desktop)
+- Web server for hosting
+- Basic understanding of Telegram Bot API
+
+### Deployment
+1. Clone repository:
+   ```bash
+   git clone https://github.com/yourusername/drop-blast.git
