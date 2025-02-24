@@ -1,9 +1,9 @@
-# Drop Blast - Telegram WebApp Game
+# BB Drop Blast - Telegram WebApp Game
 
 [![Telegram WebApp](https://img.shields.io/badge/Telegram-WebApp-2AABEE?logo=telegram)](https://core.telegram.org/bots/webapps)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-An addictive arcade-style game built for Telegram WebApps where players tap falling elements to score points while avoiding bombs and using power-ups.
+An addictive arcade-style game built for BotsBusiness Bot WebApp Development Contest,In This Game players tap falling elements to score points while avoiding bombs and using power-ups.
 
 ![drop](https://github.com/user-attachments/assets/79bf4233-ffac-4bc1-853e-e9bc389f14dc)
 
@@ -237,8 +237,7 @@ function processClick(el) {
 
 ---
 
-### How we hosted the files on Bots.Business
-### Hosting Files on Bots.Business
+### How we Made This By Bots.Business
 
 #### 1. Creating the `/start` Command
 We create a `/start` command that sends a message with an inline button to open the Web App.
