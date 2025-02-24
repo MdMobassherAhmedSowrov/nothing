@@ -188,7 +188,7 @@ function shareToStory(score) {
 
 ![Emoji Status Screenshot](https://github.com/user-attachments/assets/dbe303d8-4f5b-4465-9b65-10e77c484a38)
 .jpg)
-
+---
 ```javascript
 // Emoji status logic
 function setEmojiStatus() {
@@ -248,16 +248,6 @@ This section now includes the **Add to Home Screen** feature, along with the rel
 
 
 
-# Drop Blast - Telegram WebApp Game 🚀
-
-[![Telegram WebApp](https://img.shields.io/badge/Telegram-WebApp-2AABEE?logo=telegram)](https://core.telegram.org/bots/webapps)
-![License](https://img.shields.io/badge/License-MIT-green)
-![GitHub Last Commit](https://img.shields.io/github/last-commit/yourusername/drop-blast)
-
-<img src="assets/gameplay.gif" alt="Game Preview" width="300" align="right">
-
-An addictive arcade-style game built for Telegram WebApps with customizable gameplay mechanics and deep Telegram integration. Players collect falling elements while avoiding bombs and using power-ups to achieve high scores.
-
 ## 🎮 Core Features
 
 ### Gameplay Mechanics
@@ -268,21 +258,3 @@ An addictive arcade-style game built for Telegram WebApps with customizable game
 | Bomb Probability       | `config.bombChance`          | 15%              |
 | Freeze Duration        | `config.iceDuration`         | 4000ms           |
 | Score Values           | `processClick()` multipliers | +10/-30 points   |
-
-### Telegram Integration Features
-```javascript
-// Main integration points (telegram-webapp.js)
-const tgConfig = {
-  expandOnStart: true,
-  disableSwipes: true,
-  themeColors: {
-    header: '#0f172a',
-    bg: '#1e293b',
-    text: '#f8fafc'
-  },
-  socialFeatures: {
-    storySharing: true,
-    homeScreenPrompt: true,
-    emojiStatus: true
-  }
-};
