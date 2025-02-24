@@ -35,9 +35,7 @@ An addictive arcade-style game built for Telegram WebApps where players tap fall
 - Telegram BackButton integration
 - Device vibration feedback
 
-# 🎮 Game Guide
-
-## How It Works
+## 🎮 How It Works
 
 ### 1. **Starting the Game**
 - **Launch the Game**: Open the game through your Telegram bot or WebApp link.
@@ -134,51 +132,32 @@ function saveHighScore(score) {
   - **Emoji Status**: Premium users can set a custom emoji status.
 - **Fullscreen Mode**: Optimized for mobile and desktop play.
 - **Haptic Feedback**: Vibrates on bomb hits (if supported by the device).
+- **Add to Home Screen**: Install the game for quick access.
 
 ![Advanced Features Screenshot](path_to_screenshot.jpg)
 
 ```javascript
-// Share to Telegram Story
-function shareToStory(score) {
-  Telegram.WebApp.shareToStory({
-    media: 'screenshot.jpg',
-    caption: `I scored ${score} points in Drop Blast! 🚀`
+// Add to Home Screen logic
+function checkHomeScreenInstall() {
+  tg.checkHomeScreenStatus((status) => {
+    if (status === 'missed') {
+      tg.addToHomeScreen(); // Prompt user to add to home screen
+      tg.onEvent('homeScreenAdded', () => {
+        tg.showAlert('Game added to home screen! 🎉');
+      });
+    }
   });
 }
 ```
 
 ---
 
-### 6. **Winning Strategy**
-- Focus on tapping **normal elements** for consistent points.
-- Use **ice power-ups** strategically during high-speed moments.
-- Avoid **bombs** to prevent score penalties.
-- Aim for **combos** to maximize your score multiplier.
-
-![Winning Strategy Screenshot](path_to_screenshot.jpg)
-
-```javascript
-// Combo system logic
-let comboCount = 0;
-function processClick(el) {
-  if (el.type === 'element') {
-    comboCount++;
-    score += 10 * Math.min(comboCount, 4); // Max 4x multiplier
-  } else {
-    comboCount = 0; // Reset combo on bomb hit
-  }
-}
-```
-
----
-
-### 7. **Emoji Status System**
-For Premium Users: Players with Telegram Premium can set a custom emoji status.
-
-**How It Works**:
-- Tap the emoji button next to your profile avatar.
-- Grant permission to set your emoji status.
-- A special emoji status is activated for **1 hour**.
+### 6. **Emoji Status System**
+- **For Premium Users**: Players with Telegram Premium can set a custom emoji status.
+- **How It Works**:
+  - Tap the **emoji button** next to your profile avatar.
+  - Grant permission to set your emoji status.
+  - A special emoji status is activated for 1 hour.
 
 ![Emoji Status Screenshot](path_to_screenshot.jpg)
 
@@ -203,7 +182,30 @@ function setEmojiStatus() {
 
 ---
 
-This section provides a step-by-step explanation of how the game works, with **key code snippets** for each major feature. It’s designed to be both **user-friendly** and **developer-friendly**, helping players understand the game mechanics while giving developers insights into the implementation.
+### 7. **Winning Strategy**
+- Focus on tapping **normal elements** for consistent points.
+- Use **ice power-ups** strategically during high-speed moments.
+- Avoid **bombs** to prevent score penalties.
+- Aim for **combos** to maximize your score multiplier.
+
+![Winning Strategy Screenshot](path_to_screenshot.jpg)
+
+```javascript
+// Combo system logic
+let comboCount = 0;
+function processClick(el) {
+  if (el.type === 'element') {
+    comboCount++;
+    score += 10 * Math.min(comboCount, 4); // Max 4x multiplier
+  } else {
+    comboCount = 0; // Reset combo on bomb hit
+  }
+}
+```
+
+---
+
+This section now includes the **Add to Home Screen** feature, along with the relevant code snippet. It’s designed to be both **user-friendly** and **developer-friendly**, helping players understand the game mechanics while giving developers insights into the implementation.
 
 ## Installation & Setup
 
