@@ -238,9 +238,63 @@ function processClick(el) {
 ---
 
 ### How we hosted the files on Bots.Business
-1. Clone repository:
-   ```bash
-   git clone https://github.com/yourusername/drop-blast.git
+### Hosting Files on Bots.Business
+
+#### 1. Creating the `/start` Command
+We create a `/start` command that sends a message with an inline button to open the Web App.
+
+```js
+var AppURL = WebApp.getUrl({ command: "index" });
+```
+
+#### 2. Setting Up the `index` Command
+In the `index` command, we define URLs for external CSS and JavaScript files and render them using templates:
+
+```js
+var CSSFile = WebApp.getUrl({ command: "renderCSS" });
+var JSFile = WebApp.getUrl({ command: "renderJS" });
+
+WebApp.render({
+  template: "index.html",
+  options: {
+    CSSFile: CSSFile,
+    JSFile: JSFile
+  }
+});
+```
+
+Using templates allows for better organization by separating CSS and JavaScript into different files, making the code cleaner and more maintainable.
+
+#### 3. Rendering CSS and JavaScript Files
+To include external CSS and JavaScript files, we use the following commands:
+
+##### `renderCSS` Command
+```js
+WebApp.render({
+  template: "script.css",
+  mime_type: "text/css"
+});
+```
+
+##### `renderJS` Command
+```js
+WebApp.render({
+  template: "script.js",
+  mime_type: "application/javascript"
+});
+```
+These commands allow us to load the main JavaScript and CSS files that were moved to separate files.
+
+#### 4. Linking External CSS and JavaScript in `index.html`
+To include the external files in `index.html`, we use the following:
+
+```html
+<link rel="stylesheet" href="<% options.CSSFile %>"> <!-- Load external CSS file using BB Template -->
+<script src="<% options.JSFile %>"></script> <!-- Load external JS file using BB Template -->
+```
+
+This ensures that the styles and scripts are properly loaded from their respective file paths, keeping the project well-structured and modular.
+
 
 
 
