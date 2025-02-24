@@ -35,6 +35,176 @@ An addictive arcade-style game built for Telegram WebApps where players tap fall
 - Telegram BackButton integration
 - Device vibration feedback
 
+# 🎮 Game Guide
+
+## How It Works
+
+### 1. **Starting the Game**
+- **Launch the Game**: Open the game through your Telegram bot or WebApp link.
+- **Main Menu**:
+  - See your profile (name, avatar, and high score).
+  - Tap **"Start Game"** to begin.
+  - Use **"Fullscreen"** (if available) for an immersive experience.
+
+![Main Menu Screenshot](path_to_screenshot.jpg)
+
+```javascript
+// Initialize Telegram WebApp
+const tg = window.Telegram.WebApp;
+tg.expand(); // Expands the app to full height
+tg.setHeaderColor('#0f172a'); // Sets the header color
+tg.setBackgroundColor('#1e293b'); // Sets the background color
+```
+
+---
+
+### 2. **Gameplay Basics**
+- **Objective**: Tap falling elements to score points while avoiding bombs.
+- **Falling Elements**:
+  - 🟢 **Normal Elements**: Tap to collect (+10 points).
+  - 💣 **Bombs**: Avoid tapping (lose -30 points if hit).
+  - ❄️ **Ice Power-Ups**: Tap to freeze time and slow down elements.
+- **Timer**: You have **60 seconds** to score as many points as possible.
+
+![Gameplay Screenshot](path_to_screenshot.jpg)
+
+```javascript
+// Element spawning logic
+function spawnElement() {
+  const type = Math.random() < 0.15 ? 'bomb' : 'element';
+  elements.push({
+    type,
+    x: Math.random() * canvas.width,
+    y: -50,
+    speed: 120 + Math.random() * 40
+  });
+}
+```
+
+---
+
+### 3. **Power-Ups**
+- **Freeze Power-Up**:
+  - Temporarily slows down all falling elements.
+  - Activates for **4 seconds** (configurable).
+  - Limited uses per game.
+- **Combo System**:
+  - Chain consecutive taps for bonus points.
+  - Multiplier increases with each successful hit.
+
+![Power-Up Screenshot](path_to_screenshot.jpg)
+
+```javascript
+// Freeze power-up logic
+function activateFreeze() {
+  isFrozen = true;
+  elements.forEach(el => el.speed *= 0.2); // Slow down elements
+  setTimeout(() => isFrozen = false, 4000); // Reset after 4 seconds
+}
+```
+
+---
+
+### 4. **Game Over**
+- When the timer runs out, the game ends.
+- **Game Over Screen**:
+  - See your final score.
+  - Compare with your **high score** (saved via Telegram Cloud Storage).
+  - Options:
+    - 🔄 **Play Again**: Restart the game.
+    - 📤 **Share to Story**: Post your score on Telegram (if supported).
+    - 🏠 **Main Menu**: Return to the start screen.
+
+![Game Over Screenshot](path_to_screenshot.jpg)
+
+```javascript
+// Save high score to Telegram Cloud Storage
+function saveHighScore(score) {
+  const highScore = Math.max(score, Telegram.CloudStorage.getItem('highScore') || 0);
+  Telegram.CloudStorage.setItem('highScore', highScore);
+}
+```
+
+---
+
+### 5. **Advanced Features**
+- **Telegram Integration**:
+  - **Profile Display**: Shows your Telegram name and avatar.
+  - **Story Sharing**: Share your score with friends.
+  - **Emoji Status**: Premium users can set a custom emoji status.
+- **Fullscreen Mode**: Optimized for mobile and desktop play.
+- **Haptic Feedback**: Vibrates on bomb hits (if supported by the device).
+
+![Advanced Features Screenshot](path_to_screenshot.jpg)
+
+```javascript
+// Share to Telegram Story
+function shareToStory(score) {
+  Telegram.WebApp.shareToStory({
+    media: 'screenshot.jpg',
+    caption: `I scored ${score} points in Drop Blast! 🚀`
+  });
+}
+```
+
+---
+
+### 6. **Winning Strategy**
+- Focus on tapping **normal elements** for consistent points.
+- Use **ice power-ups** strategically during high-speed moments.
+- Avoid **bombs** to prevent score penalties.
+- Aim for **combos** to maximize your score multiplier.
+
+![Winning Strategy Screenshot](path_to_screenshot.jpg)
+
+```javascript
+// Combo system logic
+let comboCount = 0;
+function processClick(el) {
+  if (el.type === 'element') {
+    comboCount++;
+    score += 10 * Math.min(comboCount, 4); // Max 4x multiplier
+  } else {
+    comboCount = 0; // Reset combo on bomb hit
+  }
+}
+```
+
+---
+
+### 7. **Emoji Status System**
+For Premium Users: Players with Telegram Premium can set a custom emoji status.
+
+**How It Works**:
+- Tap the emoji button next to your profile avatar.
+- Grant permission to set your emoji status.
+- A special emoji status is activated for **1 hour**.
+
+![Emoji Status Screenshot](path_to_screenshot.jpg)
+
+```javascript
+// Emoji status logic
+function setEmojiStatus() {
+  tg.requestEmojiStatusAccess((isGranted) => {
+    if (isGranted) {
+      tg.setEmojiStatus('6064140861539618361', { duration: 3600 }, (success) => {
+        if (success) {
+          tg.showAlert("Special status activated! 🎉");
+        } else {
+          tg.showAlert("Failed to set emoji status. Try again!");
+        }
+      });
+    } else {
+      tg.showAlert("Permission denied. Enable emoji status access in settings.");
+    }
+  });
+}
+```
+
+---
+
+This section provides a step-by-step explanation of how the game works, with **key code snippets** for each major feature. It’s designed to be both **user-friendly** and **developer-friendly**, helping players understand the game mechanics while giving developers insights into the implementation.
+
 ## Installation & Setup
 
 ### Prerequisites
