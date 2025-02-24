@@ -157,11 +157,12 @@ function checkHomeScreenInstall() {
 **Share Your Score:** Post your high score to your Telegram story.
 
 **How It Works:**
+- After the game ends, tap **"Share to Story"**.
+- A preview of your score is generated.
+- Share it directly to your Telegram story.
 
-After the game ends, tap "Share to Story".
-A preview of your score is generated.
-Share it directly to your Telegram story.
-![image](https://github.com/user-attachments/assets/ad319111-d52a-4695-9941-b02c927ccf82)
+![Story Sharing Screenshot](https://github.com/user-attachments/assets/ad319111-d52a-4695-9941-b02c927ccf82)
+
 ```javascript
 // Story sharing logic
 function shareToStory(score) {
@@ -176,10 +177,12 @@ function shareToStory(score) {
   } else {
     tg.showAlert('Story sharing is not supported in this version of Telegram.');
   }
-}```
+}
+```
+
 ---
 
-### 6. **Emoji Status System**
+### **6. Emoji Status System**
 - **For Premium Users**: Players with Telegram Premium can set a custom emoji status.
 - **How It Works**:
   - Tap the **emoji button** next to your profile avatar.
@@ -187,14 +190,13 @@ function shareToStory(score) {
   - A special emoji status is activated for 1 hour.
 
 ![Emoji Status Screenshot](https://github.com/user-attachments/assets/dbe303d8-4f5b-4465-9b65-10e77c484a38)
-.jpg)
----
+
 ```javascript
 // Emoji status logic
 function setEmojiStatus() {
   tg.requestEmojiStatusAccess((isGranted) => {
     if (isGranted) {
-      tg.setEmojiStatus('6064140861539618361', { duration: 3600 }, (success) => {
+      tg.setEmojiStatus('6064140861539618361', {}, (success) => {
         if (success) {
           tg.showAlert("Special status activated! 🎉");
         } else {
@@ -207,10 +209,8 @@ function setEmojiStatus() {
   });
 }
 ```
-![Screenshot_2025-02-25-01-08-44-36_948cd9899890cbd5c2798760b2b95377](https://github.com/user-attachments/assets/3a2e5799-6da2-4423-956e-754f8ac4dee8)
 
----
-
+![Screenshot](https://github.com/user-attachments/assets/3a2e5799-6da2-4423-956e-754f8ac4dee8)
 ### 7. **Winning Strategy**
 - Focus on tapping **normal elements** for consistent points.
 - Use **ice power-ups** strategically during high-speed moments.
