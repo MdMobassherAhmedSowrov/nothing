@@ -18,7 +18,7 @@ An addictive arcade-style game built for Telegram WebApps where players tap fall
 
 💎 **Premium Features**
 - Telegram user profile integration
-- Emoji status rewards for premium users
+- Emoji status for premium users [Bot API 8.0]
 - Story sharing with score challenges
 - Home screen installation prompts
 
@@ -31,7 +31,7 @@ An addictive arcade-style game built for Telegram WebApps where players tap fall
 📱 **Telegram Integration**
 - Native WebApp UI components
 - Cloud storage for high scores
-- Fullscreen mode support
+- Fullscreen mode support [Bot API 8.0]
 - Telegram BackButton integration
 - Device vibration feedback
 
@@ -42,7 +42,7 @@ An addictive arcade-style game built for Telegram WebApps where players tap fall
 - **Main Menu**:
   - See your profile (name, avatar, and high score).
   - Tap **"Start Game"** to begin.
-  - Use **"Fullscreen"** (if available) for an immersive experience.
+  - Use **"Fullscreen"** (if available - *Require [Version 8.0])* for an immersive experience.
 
 ![Main Menu Screenshot](https://github.com/user-attachments/assets/691685f3-0c2d-4f88-b91f-3a7a001afb1b)
 
@@ -132,10 +132,10 @@ function saveHighScore(score) {
 - **Telegram Integration**:
   - **Profile Display**: Shows your Telegram name and avatar.
   - **Story Sharing**: Share your score with friends.
-  - **Emoji Status**: Premium users can set a custom emoji status.
-- **Fullscreen Mode**: Optimized for mobile and desktop play.
+  - **Emoji Status**: Premium users can set a custom emoji status. * - Require [Version 8.0]*
+- **Fullscreen Mode**: Optimized for mobile and desktop play. *- Require [Version 8.0]*
 - **Haptic Feedback**: Vibrates on bomb hits (if supported by the device).
-- **Add to Home Screen**: Install the game for quick access.
+- **Add to Home Screen**: Install the game for quick access. *- Require [Version 8.0]*
 
 ![Advanced Features Screenshot](https://github.com/user-attachments/assets/c12db2bf-29b5-465e-a727-96696ef77b27)
 
