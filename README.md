@@ -5,7 +5,8 @@
 
 An addictive arcade-style game built for Telegram WebApps where players tap falling elements to score points while avoiding bombs and using power-ups.
 
-![Gameplay Screenshot](https://i.imgur.com/j4GQhCZ.jpeg) 
+![drop](https://github.com/user-attachments/assets/79bf4233-ffac-4bc1-853e-e9bc389f14dc)
+CZ.jpeg) 
 
 ## Features
 
@@ -44,7 +45,7 @@ An addictive arcade-style game built for Telegram WebApps where players tap fall
   - Tap **"Start Game"** to begin.
   - Use **"Fullscreen"** (if available) for an immersive experience.
 
-![Main Menu Screenshot]!(https://github.com/user-attachments/assets/691685f3-0c2d-4f88-b91f-3a7a001afb1b)
+![Main Menu Screenshot](https://github.com/user-attachments/assets/691685f3-0c2d-4f88-b91f-3a7a001afb1b)
 
 
 ```javascript
@@ -65,7 +66,7 @@ tg.setBackgroundColor('#1e293b'); // Sets the background color
   - ❄️ **Ice Power-Ups**: Tap to freeze time and slow down elements.
 - **Timer**: You have **60 seconds** to score as many points as possible.
 
-![Gameplay Screenshot]!(https://github.com/user-attachments/assets/dd859884-8c78-4df6-834b-f60f1d897c06)
+![Gameplay Screenshot](https://github.com/user-attachments/assets/dd859884-8c78-4df6-834b-f60f1d897c06)
 
 
 ```javascript
